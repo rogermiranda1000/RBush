@@ -1,4 +1,4 @@
-RBush
+Unique RBush
 =====
 
 RBush is a high-performance .NET library for 2D **spatial indexing** of points and rectangles.
@@ -11,7 +11,7 @@ It's most commonly used in maps and data visualizations.
 
 This code has been copied over from the Javascript [RBush](https://github.com/mourner/rbush) library.
 
-[![Build status](https://ci.appveyor.com/api/projects/status/0dyclfrwgcnl9y67/branch/master?svg=true)](https://ci.appveyor.com/project/viceroypenguin/rbush/branch/master)
+Unlike [RBush](https://github.com/viceroypenguin/RBush), this only performs inserts if the element is unique.
 
 ## Install
 

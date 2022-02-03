@@ -20,6 +20,14 @@ namespace RBush
 			this.MaxY = maxY;
 		}
 
+		public Envelope(double x, double y)
+		{
+			this.MinX = x;
+			this.MinY = y;
+			this.MaxX = x;
+			this.MaxY = y;
+		}
+
 		public Envelope Extend(in Envelope other) =>
 			new Envelope(
 				minX: Math.Min(this.MinX, other.MinX),
@@ -75,5 +83,10 @@ namespace RBush
 				minY: double.PositiveInfinity,
 				maxX: double.NegativeInfinity,
 				maxY: double.NegativeInfinity);
+
+		public override string ToString()
+		{
+			return String.Format("Envelope: MinX={0}, MinY={1}, MaxX={2}, MaxY={3}", this.MinX, this.MinY, this.MaxX, this.MaxY);
+		}
 	}
 }

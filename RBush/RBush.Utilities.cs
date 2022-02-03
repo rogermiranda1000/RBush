@@ -99,6 +99,7 @@ namespace RBush
 			var path = FindCoveringArea(data.Envelope, depth);
 
 			var insertNode = path.Last();
+			if (GetAllChildren(new List<T>(), insertNode).Any(node => node.Envelope == data.Envelope)) return;
 			insertNode.Add(data);
 
 			while (--depth >= 0)
