@@ -94,12 +94,12 @@ namespace RBush
 			}
 		}
 
-		private void Insert(ISpatialData data, int depth)
+		private bool Insert(ISpatialData data, int depth)
 		{
 			var path = FindCoveringArea(data.Envelope, depth);
 
 			var insertNode = path.Last();
-			if (GetAllChildren(new List<T>(), insertNode).Any(node => node.Envelope == data.Envelope)) return;
+			if (GetAllChildren(new List<T>(), insertNode).Any(node => node.Envelope == data.Envelope)) return false;
 			insertNode.Add(data);
 
 			while (--depth >= 0)
@@ -115,6 +115,7 @@ namespace RBush
 				else
 					path[depth].ResetEnvelope();
 			}
+			return true;
 		}
 
 		#region SplitNode

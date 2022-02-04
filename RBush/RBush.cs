@@ -44,10 +44,14 @@ namespace RBush
 		public IReadOnlyList<T> Search(in Envelope boundingBox) =>
 			DoSearch(boundingBox);
 
-		public void Insert(T item)
+		public bool Insert(T item)
 		{
-			Insert(item, this.Root.Height);
-			this.Count++;
+			if (Insert(item, this.Root.Height))
+			{
+				this.Count++;
+				return true;
+			}
+			return false;
 		}
 
 		public void BulkLoad(IEnumerable<T> items)

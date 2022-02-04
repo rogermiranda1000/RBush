@@ -4,7 +4,7 @@ namespace RBush
 {
 	public interface ISpatialDatabase<T> : ISpatialIndex<T>
 	{
-		void Insert(T item);
+		bool Insert(T item);
 		void Delete(T item);
 		void Clear();
 
